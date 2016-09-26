@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import socket
+import socket,json
 from tornado.tcpserver import TCPServer
 from tornado.iostream import IOStream
 
@@ -52,13 +52,20 @@ class tcp_gateway(object):
 		self.__sending_stream=None
 		self.__message=None
 		pass
-	
-	
-	
-	def send_string(self,target_ip,target_port,string_data):
+		
+	def __send_string(self, target_ip, target_port, string_data):
 		self.sending_socket=socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
 		self.__message=string_data
 		self.__sending_stream=IOStream(self.sending_socket)
 		self.__sending_stream.connect((target_ip, target_port), self.__sending_action)
 		pass
+	
+	def send_json_dict(self,target_ip,target_port,dict,timeout_seconds=None,timeout_action=None):
+		'''发送json结构，字典内只能有dict/map，或者list这两种数据结构，如果超时n秒都没有收到消息，则执行timeout_action'''
+		
+		self.__send_string(target_ip,target_port,json.dumps(dict))
+		pass
+	
+	
+	
 	pass

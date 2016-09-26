@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- coding: utf-8 -*-
 
 '''
 本文件仅用于存放对于事件类型常量的定义。
@@ -33,6 +33,10 @@ EVENT_DATARECORDER_LOG = 'eDataRecorderLog' # 行情记录日志更新事件
 
 # Wind接口相关
 EVENT_WIND_CONNECTREQ = 'eWindConnectReq'   # Wind接口请求连接事件
+
+
+
+
 
 
 #----------------------------------------------------------------------

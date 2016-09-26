@@ -1,3 +1,5 @@
 {
+	"known_cluster_node":"0.0.0.0:31418",
+	"seeding_timeout": 3,
 	"listening_port" : 31416
 }

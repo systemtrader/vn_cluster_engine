@@ -90,3 +90,5 @@ def create_a_listneing_socket(port):
 	sock.listen(12)#最长允许12个连入排队，系统默认一般是5
 	return sock
 	
+def address_string2address_tuple(ip_port_string):
+	return tuple(ip_port_string.split(':'))
